@@ -1,4 +1,4 @@
-name: EventMessages
+name: AuthMeBridge
 version: ${version}
 main: com.johanneshq.authmebridge.AuthMeBridge
 description: NetworkManager EventMessages Extension
