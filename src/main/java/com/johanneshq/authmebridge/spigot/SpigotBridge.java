@@ -2,8 +2,8 @@ package com.johanneshq.authmebridge.spigot;
 
 import com.johanneshq.authmebridge.AuthMeBridge;
 import com.johanneshq.authmebridge.config.SpigotConfig;
+import com.johanneshq.authmebridge.spigot.listeners.PlayerListener;
 import com.johanneshq.authmebridge.spigot.listeners.PluginMessageListener;
-import org.bukkit.Bukkit;
 
 public class SpigotBridge {
 
@@ -19,6 +19,8 @@ public class SpigotBridge {
 
         spigotConfig = new SpigotConfig();
         spigotConfig.load();
+
+        AuthMeBridge.get().getNetworkManager().registerListener(new PlayerListener());
     }
 
     public static SpigotBridge get() {
