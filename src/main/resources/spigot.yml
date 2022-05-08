@@ -1,0 +1,18 @@
+protection:
+  chat: true
+  blockBreak: true
+  blockPlace: true
+  onPlayerInteract: true
+  onEntityDamage: true
+  onFoodLevelChange: true
+  onItemDrop: true
+  onPlayerPickupItemEvent: true
+  onChangeWeather: true
+  onBlockBurn: true
+  onEntityExplode: true
+  onBlockExplodeEvent: true
+  onExplosionPrimeEvent: true
+
+server:
+  joinMessage: false
+  quitMessage: false

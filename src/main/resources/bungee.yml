@@ -1,0 +1,24 @@
+#Here you define if your server is a group or just one login server.
+#if it's a group, it will check if the group exists or not.
+#if the group exists, it will move the player to this group once player logged in.
+login:
+  group: true
+  disableChat: true #disable chat in the login servers.
+  loginGroup: "authentication"
+  whitelistedCommands:
+    - "/login"
+    - "/logout"
+    - "/l"
+    - "/r"
+    - "/register"
+  lobbyGroup: "lobbies"
+
+  #RANDOM
+  #RANDOM_LOWEST
+  #RANDOM_FILLER
+balanceMethod: "RANDOM"
+
+auth:
+  kickUnauthenticated: true #kick player if they are not authenticated and not in the login servers. Recommended to leave it on.
+  blockAllProxyCommands: true #block all proxy players if player is not authenticated.
+  blockServerSwitch: true #block server moving from login group to other servers while not authenticated.

@@ -1,0 +1,6 @@
+name: EventMessages
+version: ${version}
+main: com.johanneshq.authmebridge.AuthMeBridge
+description: NetworkManager EventMessages Extension
+authors: [JohannesHQ]
+api-version: 2.11.1
