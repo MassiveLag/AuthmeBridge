@@ -21,7 +21,6 @@ public class BungeeBridge {
         bungeeBridge = this;
 
         bungeeConfig = new BungeeConfig();
-        bungeeConfig.load();
 
         playerHandler = new PlayerHandler();
 

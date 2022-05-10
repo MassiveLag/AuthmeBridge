@@ -10,15 +10,9 @@ public class SpigotConfig extends FileUtils {
         setupFile(AuthMeBridge.get().getResource("spigot.yml"));
     }
 
-    public void load() {
-
-    }
-
     @Override
     public void reload() {
         super.reload();
-
-        load();
     }
 
 }

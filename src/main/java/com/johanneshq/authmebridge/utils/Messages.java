@@ -2,9 +2,7 @@ package com.johanneshq.authmebridge.utils;
 
 public enum Messages {
 
-    ATTEMP_SENDING_LOBBY("authmebridge.attemp", "Trying to send you to a random lobby...", "0.1", "authmebridge"),
-    QUIT("eventmessages.logout", "%playername% left the network!", "0.1", "eventmessages"),
-    SERVER_SWITCH("eventmessages.serverswitch", "%playername% switched from %prevserver% to %server% server!", "0.1", "eventmessages");
+    ATTEMP_SENDING_LOBBY("authmebridge.attemp", "Trying to send you to a random lobby...", "0.1", "authmebridge");
 
     final String key;
     final String message;

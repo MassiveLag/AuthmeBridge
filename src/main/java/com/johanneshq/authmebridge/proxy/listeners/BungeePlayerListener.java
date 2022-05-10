@@ -35,29 +35,28 @@ public class BungeePlayerListener implements Listener {
         if (event.isCancelled())
             return;
 
-        ProxiedPlayer player = (ProxiedPlayer) event.getSender();
+        if (event.getSender() instanceof ProxiedPlayer player) {
+            String[] message = event.getMessage().split(" ");
 
+            Optional<PlayerModel> playerModelOptional = bungeeBridge.getPlayerHandler().getModel(player.getUniqueId());
+            if (playerModelOptional.isEmpty()) {
+                player.disconnect(new TextComponent("An error occurred!"));
+                return;
+            }
 
-        String[] message = event.getMessage().split(" ");
+            PlayerModel playerModel = playerModelOptional.get();
 
-        Optional<PlayerModel> playerModelOptional = bungeeBridge.getPlayerHandler().getModel(player.getUniqueId());
-        if (playerModelOptional.isEmpty()) {
-            player.disconnect(new TextComponent("An error occurred!"));
-            return;
-        }
+            //Check if player is in the login server
+            if (bungeeBridge.isLogin(player.getServer().getInfo().getName())) {
 
-        PlayerModel playerModel = playerModelOptional.get();
-
-        //Check if player is in the login server
-        if (bungeeBridge.isLogin(player.getServer().getInfo().getName())) {
-
-            //Check if it's a command or not.
-            if (!event.isCommand()) {
-                event.setCancelled(bungeeBridge.getBungeeConfig().getBoolean("login.disableChat"));
-            } else
-                event.setCancelled(bungeeBridge.getBungeeConfig().getStringList("login.whitelistedCommands").stream().noneMatch(s -> s.startsWith(message[0])));
-        } else if (!playerModel.isLoggedIn() && bungeeBridge.getBungeeConfig().getBoolean("auth.kickUnauthenticated"))
+                //Check if it's a command or not.
+                if (!event.isCommand()) {
+                    event.setCancelled(bungeeBridge.getBungeeConfig().getBoolean("login.disableChat"));
+                } else
+                    event.setCancelled(bungeeBridge.getBungeeConfig().getStringList("login.whitelistedCommands").stream().noneMatch(s -> s.startsWith(message[0])));
+            } else if (!playerModel.isLoggedIn() && bungeeBridge.getBungeeConfig().getBoolean("auth.kickUnauthenticated"))
                 player.disconnect(new TextComponent("You are not authenticated!"));
+        }
     }
 
     @EventHandler

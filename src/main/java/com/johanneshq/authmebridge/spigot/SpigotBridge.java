@@ -18,7 +18,6 @@ public class SpigotBridge {
         pluginMessageListener = new PluginMessageListener();
 
         spigotConfig = new SpigotConfig();
-        spigotConfig.load();
 
         AuthMeBridge.get().getNetworkManager().registerListener(new PlayerListener());
     }

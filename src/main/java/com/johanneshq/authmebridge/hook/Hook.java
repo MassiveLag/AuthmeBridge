@@ -63,7 +63,7 @@ public class Hook {
      * @param serverGroup the serverGroup you want to get a server from.
      * @param balanceMethodType the methode
      */
-    public  Optional<Server> getRandomServerFromServerGroup(Player player, ServerGroup serverGroup, BalanceMethodType balanceMethodType) {
+    public  Optional<Server> getServerFromServerGroup(Player player, ServerGroup serverGroup, BalanceMethodType balanceMethodType) {
         return Optional.ofNullable(networkManager.getCacheManager().getCachedServers().getServerFromGroup(player, serverGroup, balanceMethodType));
     }
 

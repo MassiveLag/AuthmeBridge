@@ -13,6 +13,9 @@ public class AuthMeBridge extends NMExtension {
 
     @Override
     protected void onConfigsReload() {
+        if (getNetworkManager().getPlatformType().isProxy())
+            BungeeBridge.get().getBungeeConfig().reload();
+        else SpigotBridge.get().getSpigotConfig().reload();
     }
 
     @Override

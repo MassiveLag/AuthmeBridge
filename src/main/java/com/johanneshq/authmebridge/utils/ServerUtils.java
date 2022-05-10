@@ -29,7 +29,7 @@ public class ServerUtils {
             return;
         }
 
-        Optional<Server> randomServerFromServerGroup = Hook.instance.getRandomServerFromServerGroup(playerOptional.get(), serverGroup.get(), balanceMethodType);
+        Optional<Server> randomServerFromServerGroup = Hook.instance.getServerFromServerGroup(playerOptional.get(), serverGroup.get(), balanceMethodType);
         randomServerFromServerGroup.ifPresent(server -> playerOptional.get().connect(server));
     }
 

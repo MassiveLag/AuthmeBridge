@@ -10,15 +10,9 @@ public class BungeeConfig extends FileUtils {
         setupFile(AuthMeBridge.get().getResource("bungee.yml"));
     }
 
-    public void load() {
-
-    }
-
     @Override
     public void reload() {
         super.reload();
-
-        load();
     }
 
 }
